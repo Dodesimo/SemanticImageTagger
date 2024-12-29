@@ -6,6 +6,8 @@ from langchain_openai import OpenAI, OpenAIEmbeddings
 from openai import OpenAI
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
+from langchain_community.vectorstores import MongoDBAtlasVectorSearch
+from langchain_community.embeddings.openai import OpenAIEmbeddings
 
 app = FastAPI()
 load_dotenv()
@@ -54,3 +56,16 @@ def upload(id: str):
     col.insert_one(entry)
 
     return {"repsonse": 200}
+
+@app.get("/vector_search/{description}")
+def vector_search(description: str):
+    client = OpenAI(api_key=os.getenv("KEY"))
+    uri = "mongodb+srv://dm:dm@cluster0.so2fb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    # Create a new client and connect to the server
+    client = MongoClient(uri, server_api=ServerApi('1'))
+    db = client["photos"]
+    col = db["photos"]
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-large", api_key=os.getenv("KEY"))
+    vectorstore = MongoDBAtlasVectorSearch(col, embeddings, index_name="embedding")
+    results = vectorstore.similarity_search(description)
+    return {"repsonse": str(results[0].page_content)}
