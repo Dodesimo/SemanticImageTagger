@@ -53,7 +53,7 @@ def upload(id: str):
     client = MongoClient(uri, server_api=ServerApi('1'))
     db = client["photos"]
     col = db["photos"]
-    entry = {"name": f"{id}", "embedding": e}
+    entry = {"text": f"{id}", "embedding": e}
     col.insert_one(entry)
 
     return {"repsonse": 200}
