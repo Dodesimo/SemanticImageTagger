@@ -9,9 +9,18 @@ from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 from langchain_community.vectorstores import MongoDBAtlasVectorSearch
 from langchain_community.embeddings.openai import OpenAIEmbeddings
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 load_dotenv()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 
 @app.get("/")
