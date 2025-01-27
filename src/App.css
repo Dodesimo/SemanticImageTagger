@@ -1,0 +1,519 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+/* Reset some basic styles for a cleaner look */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif; /* Modern font for the body */
+  background-color: #121212; /* Dark background for sleek look */
+  color: #eeeeee; /* Softer text color */
+  line-height: 1.6;
+}
+
+/* Container for the entire app */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Header styling */
+.header {
+  text-align: center;
+  margin-bottom: 30px; /* Reduced space between header and other content */
+  position: relative;
+  padding: 0 15px;
+  box-sizing: border-box; /* To prevent overflow */
+}
+
+/* Title (h1) styling */
+.header h1 {
+  font-family: 'Montserrat', sans-serif; /* Bold, modern font */
+  font-size: 4rem; /* Increased size for emphasis */
+  color: #6A00FF; /* A more subdued, yet vibrant purple */
+  margin-bottom: 0.5em; /* Reduced margin between title and the next element */
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* More pronounced shadow for depth */
+  letter-spacing: 0.1em; /* Slightly more spacing between letters for a cleaner look */
+  font-weight: 600; /* Slightly bolder for better contrast */
+  animation: slideIn 1s ease-out; /* Slide-in animation */
+}
+
+/* General paragraph styling */
+.header p {
+  font-size: 1.15rem; /* Slightly smaller font for readability */
+  color: #ddd; /* Lighter grey for subtlety */
+  margin-top: 0.5em; /* Reduced margin to bring text closer */
+  font-weight: 400; /* Regular weight for softer emphasis */
+  letter-spacing: 0.05em; /* Minimal letter spacing for balance */
+  line-height: 1.6; /* Improved line height for better readability */
+  max-width: 85%; /* A little wider for better legibility */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* First paragraph (subtitle) styling */
+.header p:nth-of-type(1) {
+  font-size: 1.3rem;
+  color: #bbb; /* Lighter, softer color for the first paragraph */
+  font-weight: 500; /* Slightly bolder for emphasis */
+  margin-top: 0.4em; /* Reduced margin to bring it closer to the title */
+  letter-spacing: 0.08em; /* Slightly more spacing for readability */
+}
+
+/* Second paragraph (description) styling */
+.header p:nth-of-type(2) {
+  font-size: 1.2rem; /* Keep it smaller but not too small */
+  color: #ffffff; /* Clean, crisp white for high contrast */
+  margin-top: 15px;
+  font-weight: 400; /* Regular weight for softer visual appeal */
+  line-height: 1.8; /* Spacious line height for a relaxed, easy read */
+  letter-spacing: 0.03em; /* Minimal letter spacing for smooth flow */
+  max-width: 85%; /* Ensures it doesn't stretch too wide */
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9; /* Slight opacity for a soft, professional appearance */
+}
+
+/* Keyframes for slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* File Upload */
+/* Styling for the file upload component */
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the file input button (hidden by default) */
+.file-upload input[type="file"] {
+  display: none; /* Hide the default file input button */
+}
+
+/* Custom label that acts as the file upload button */
+.file-upload label {
+  display: inline-block;
+  background-color: #6A00FF; /* Vibrant purple */
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.file-upload label:hover {
+  background-color: #5500cc; /* Darker shade of purple on hover */
+}
+
+/* Display the name of the selected file */
+.file-upload .file-name {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 400;
+}
+
+/* Style for the "No file chosen" text */
+.file-upload .file-name.no-file {
+  font-style: italic;
+  color: #bbb; /* Lighter color when no file is chosen */
+}
+
+/* Instructions text */
+.file-upload .instructions {
+  font-size: 1rem;
+  color: #888;
+  margin-top: 10px;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Upload Component Styles */
+.upload-container {
+  margin-bottom: 30px;
+}
+
+.upload-box {
+  border: 2px dashed rgba(157, 0, 255, 0.5); /* Semi-transparent border */
+  padding: 30px;
+  border-radius: 12px; /* More rounded corners for a sleek look */
+  background: linear-gradient(135deg, #282828, #1c1c1c); /* Gradient background */
+  transition: border-color 0.3s; /* Smooth transition on hover */
+}
+
+.upload-box:hover {
+  border-color: #9D00FF; /* Change border color on hover */
+}
+
+.file-input {
+  display: none; /* Hide native file input */
+}
+
+.upload-label {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.upload-label span {
+  color: #9D00FF;
+  font-weight: bold;
+}
+
+.upload-button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  background-color: #9D00FF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif; /* Using a bold font for buttons */
+  font-weight: 700;
+  transition: background-color 0.3s, transform 0.2s; /* Add transition for hover effect */
+}
+
+.upload-button:hover {
+  background-color: #b54aff;
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.upload-button:disabled {
+  background-color: #777;
+  cursor: not-allowed;
+}
+
+/* Search Component Styles */
+
+.search-component {
+  --input-text-color: #fff;
+  --input-bg-color: #283542;
+  --focus-input-bg-color: transparent;
+  --text-color: #949faa;
+  --active-color: #1b9bee;
+  --width-of-input: 300px; /* Adjust width of the input */
+  --inline-padding-of-input: 1.2em;
+  --gap: 0.9rem;
+}
+
+/* form style */
+.search-component {
+  font-size: 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: var(--width-of-input);
+  position: relative;
+  isolation: isolate;
+}
+
+/* a fancy bg for showing background and border when focus. */
+.search-component {
+  position: absolute;
+  width: 100%;
+  inset: 0;
+  background: var(--input-bg-color);
+  border-radius: 30px;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/* styling of input */
+input[type="text"] {
+  color: var(--input-text-color);
+  width: 100%;
+  padding: 12px 15px;
+  margin-inline: min(2em, calc(var(--inline-padding-of-input) + var(--gap)));
+  background: none;
+  border: none;
+  border-radius: 30px;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add soft shadow by default */
+}
+
+/* Focused state styling */
+input[type="text"]:focus {
+  outline: none;
+  background: transparent;
+  box-shadow: 0 0 15px rgba(157, 0, 255, 0.5); /* Stronger shadow on focus */
+}
+
+/* input background change in focus */
+input[type="text"]:focus ~ .fancy-bg {
+  border: 1px solid var(--active-color);
+  background: var(--focus-input-bg-color);
+}
+
+/* search icon color change in focus */
+input[type="text"]:focus ~ .search {
+  fill: var(--active-color);
+}
+
+/* showing close button when typing */
+input[type="text"]:valid ~ .close-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Reset autofill browser styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+  -webkit-transition-delay: 9999s;
+}
+
+.search-container {
+  margin-bottom: 30px;
+}
+
+.search-input {
+  padding: 12px;
+  width: 300px;
+  font-size: 1rem;
+  margin-right: 10px;
+  border: 2px solid rgba(157, 0, 255, 0.5);
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  border-color: #9D00FF; /* Change border color on focus */
+  outline: none; /* Remove outline */
+}
+
+.search-button {
+  font-family: 'Ropa Sans', sans-serif;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  border: 1px solid #0E1822;
+  padding: 0.8rem 2.1rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 531.28 200'%3E%3Cdefs%3E%3Cstyle%3E .shape %7B fill: %23FF4655 /* fill: %230E1822; */ %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_2' data-name='Layer 2'%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpolygon class='shape' points='415.81 200 0 200 115.47 0 531.28 0 415.81 200' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+  background-color: #0E1822;
+  background-size: 200%;
+  background-position: 200%;
+  background-repeat: no-repeat;
+  transition: 0.3s ease-in-out;
+  transition-property: background-position, border, color;
+  position: relative;
+  z-index: 1;
+}
+
+.search-button:hover {
+  border: 1px solid #FF4655;
+  color: white;
+  background-position: 40%;
+}
+
+.search-button:before {
+  content: "";
+  position: absolute;
+  background-color: #0E1822;
+  width: 0.2rem;
+  height: 0.2rem;
+  top: -1px;
+  left: -1px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.search-button:hover:before {
+  background-color: white;
+}
+
+.search-button:hover:after {
+  background-color: white;
+}
+
+.search-button:after {
+  content: "";
+  position: absolute;
+  background-color: #FF4655;
+  width: 0.3rem;
+  height: 0.3rem;
+  bottom: -1px;
+  right: -1px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.search-button-borders {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+}
+
+.search-button-borders:before {
+  content: "";
+  position: absolute;
+  width: calc(100% + 0.5em);
+  height: 50%;
+  left: -0.3em;
+  top: -0.3em;
+  border: 1px solid #0E1822;
+  border-bottom: 0px;
+}
+
+.search-button-borders:after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 0.5em);
+  height: 50%;
+  left: -0.3em;
+  bottom: -0.3em;
+  border: 1px solid #0E1822;
+  border-top: 0px;
+  z-index: 0;
+}
+
+.shape {
+  fill: #0E1822;
+}
+
+.search-button:hover {
+  background-color: #b54aff;
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Gallery Styles */
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  margin: 20px auto;
+  max-width: 1000px;
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  background: linear-gradient(135deg, #282828, #1c1c1c);
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow for depth */
+  transition: transform 0.3s; /* Smooth scale effect */
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px); /* Lift effect on hover */
+}
+
+.gallery-image {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: cover; /* Cover aspect for images */
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.image-info {
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 15px;
+}
+
+.image-link {
+  color: #9D00FF;
+  text-decoration: none;
+  font-size: 0.9rem;
+  word-break: break-all;
+  display: inline-block;
+  max-width: 100%;
+  transition: color 0.3s;
+}
+
+.image-link:hover {
+  color: #b54aff;
+}
+
+/* Modal Styles */
+.modal-content {
+  background-color: #282828;
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .search-input {
+    width: 100%;
+    margin-right: 0; /* Remove margin */
+    margin-bottom: 10px; /* Spacing for layout */
+  }
+
+  .upload-button, .search-button {
+    width: 100%; /* Full-width buttons on smaller screens */
+    margin-bottom: 10px; /* Add spacing between buttons */
+  }
+
+  .gallery-container {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .gallery-item {
+    max-width: 100%; /* Full width on small screens */
+  }
+}
+
+.auth-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.welcome-message {
+  text-align: center;
+  margin: 40px 0;
+  color: #ddd;
+  font-size: 1.2rem;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: #9D00FF;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #8400d6;
+}
